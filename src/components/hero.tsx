@@ -8,8 +8,7 @@ type Props = {};
 const slidesData = [
   {
     id: 1,
-    background:
-      'https://s3-alpha-sig.figma.com/img/d30c/d090/9244cd6a3be94089053b70a898e7e451?Expires=1738540800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=bwohAIDw0jF9taGHkBWx6vKDBD0-s~9iZDP027psaXSbOZLxUIhOdALxRtNafF41u~~YVwpiG8rBzWSAX7lUwkMMqSRzemP15GXO8RCvp3eW5scZwGSpUcwMHIMhXFta9XnAeWi8hsRGmorHX~lbEH1O3GQkGtHqlu6mABwzX2EBarut29TOQUEZ6lOsUdlKCpc7Q6i5Wq4ejJ8qNp3ZiPVdGxCwmPNR7sQejXFnu8pV3R-B~aqZaRzHQlmptKx-x3wPs0Yn8phCk4hsg5YD9h2vkMNN2cqQxmRGIyiPshZ1ssQdymU5MmM4V4cbnfelCOT80jk0G47vmdcIdn9eMg__',
+    background: '/fon.jpeg',
     title: 'CREATE<span className="text-[#ff5832]">X</span> CONSTRUCTION',
     text: 'Cras ultrices leo vitae non viverra. Fringilla nisi quisque consequat, dignissim vitae proin ipsum sed. Pellentesque nec turpis purus eget pellentesque integer ipsum elementum felis.',
   },
