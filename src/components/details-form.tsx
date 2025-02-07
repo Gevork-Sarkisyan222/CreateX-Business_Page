@@ -1,9 +1,15 @@
+'use client';
+
 import React from 'react';
 import Container from './container';
+import * as motion from 'motion/react-client';
+import { useMediaQuery } from 'react-responsive';
 
 type Props = {};
 
 function DiscusForm({}: Props) {
+  const isSmallScreen = useMediaQuery({ query: '(max-width: 516px)' });
+
   return (
     <div
       style={{
@@ -15,7 +21,11 @@ function DiscusForm({}: Props) {
       className="w-full">
       {' '}
       <Container className="flex justify-end w-full px-[20px]">
-        <form
+        <motion.form
+          initial={{ opacity: 0, x: isSmallScreen ? -200 : -500 }}
+          whileInView={{ opacity: 1, x: 0, transition: { delay: 0.5 } }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
           style={{
             boxShadow: `
               0px 4px 4px -4px #1E212C0D,
@@ -101,7 +111,7 @@ function DiscusForm({}: Props) {
               </button>
             </div>
           </div>
-        </form>
+        </motion.form>
       </Container>
     </div>
   );

@@ -1,11 +1,14 @@
 'use client';
 
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
+import { useMediaQuery } from 'react-responsive';
 
 type Props = {};
 
 function Header({}: Props) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isMobile = useMediaQuery({ query: '(max-width: 1106px)' });
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -18,8 +21,20 @@ function Header({}: Props) {
   return (
     <div className="max-w-[1400px] mx-auto">
       <header className="pt-[38px] pb-[21px]">
-        <div className="flex justify-around max-[1105px]:justify-between max-[1105px]:px-[20px] items-center">
-          <div className="flex gap-[60px] items-center">
+        <motion.div
+          initial={{ opacity: isMobile ? 0 : '', x: isMobile ? 300 : '' }}
+          whileInView={{
+            opacity: isMobile ? 1 : '',
+            x: isMobile ? 0 : '',
+            transition: { delay: 0.4 },
+          }}
+          viewport={{ once: true }}
+          className="flex justify-around max-[1105px]:justify-between max-[1105px]:px-[20px] items-center">
+          <motion.div
+            initial={{ opacity: 0, x: 300 }}
+            whileInView={{ opacity: 1, x: 0, transition: { delay: 0.4 } }}
+            viewport={{ once: true }}
+            className="flex gap-[60px] items-center">
             <img src="/logo.svg" alt="logo" />
 
             <ul className="flex gap-[40px] items-center font-[700] text-[#424551] max-[1105px]:hidden">
@@ -39,9 +54,13 @@ function Header({}: Props) {
                 Contacts
               </li>
             </ul>
-          </div>
+          </motion.div>
 
-          <section className="flex items-center gap-[36px] max-[1105px]:hidden">
+          <motion.section
+            initial={{ opacity: 0, y: 300 }}
+            whileInView={{ opacity: 1, y: 0, transition: { delay: 0.5 } }}
+            viewport={{ once: true }}
+            className="flex items-center gap-[36px] max-[1105px]:hidden">
             <div className="flex gap-[12px]">
               <img src="/Rectangle (Stroke).svg" alt="" />
               <article className="cursor-pointer">
@@ -62,7 +81,7 @@ function Header({}: Props) {
                 </p>
               </article>
             </div>
-          </section>
+          </motion.section>
 
           <button onClick={toggleMenu} className="hidden max-[1105px]:block">
             {isMenuOpen ? (
@@ -98,7 +117,7 @@ function Header({}: Props) {
               </svg>
             )}
           </button>
-        </div>
+        </motion.div>
 
         {/* Black Overlay */}
         {isMenuOpen && (

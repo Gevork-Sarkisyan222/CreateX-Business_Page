@@ -2,6 +2,7 @@
 
 import React, { useState, useRef } from 'react';
 import Container from './container';
+import { motion } from 'motion/react';
 
 type Props = {};
 
@@ -86,7 +87,10 @@ function Hero({}: Props) {
   }, []);
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0, transition: { delay: 0.1 } }}
+      viewport={{ once: true }}
       className="relative overflow-hidden"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
@@ -193,7 +197,7 @@ function Hero({}: Props) {
           />
         </svg>
       </button>
-    </div>
+    </motion.div>
   );
 }
 

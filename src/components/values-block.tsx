@@ -3,6 +3,7 @@
 import React, { useState, useRef } from 'react';
 import Container from './container';
 import FormSection from './form-section';
+import { motion } from 'motion/react';
 
 type Props = {};
 
@@ -24,14 +25,26 @@ function ValuesBlock({}: Props) {
 
   return (
     <Container className="mt-[120px] text-center flex justify-center flex-col max-[1000px]:px-[20px]">
-      <h1 className="font-[700] text-[48px] mb-[24px] max-[1000px]:text-[32px]">
+      <motion.h1
+        initial={{ opacity: 0, x: 100 }}
+        whileInView={{ opacity: 1, x: 0, transition: { delay: 0.4 } }}
+        viewport={{ once: true, margin: '-100px' }}
+        className="font-[700] text-[48px] mb-[24px] max-[1000px]:text-[32px]">
         We are Createx Construction Bureau
-      </h1>
-      <p className="text-[18px] font-[400] text-[#787A80] mb-[60px]  max-[1000px]:text-[14px] noBold">
+      </motion.h1>
+      <motion.p
+        initial={{ opacity: 0, x: 100 }}
+        whileInView={{ opacity: 1, x: 0, transition: { delay: 0.5 } }}
+        viewport={{ once: true, margin: '-100px' }}
+        className="text-[18px] font-[400] text-[#787A80] mb-[60px]  max-[1000px]:text-[14px] noBold">
         We are rightfully considered to be the best construction company in the USA.
-      </p>
+      </motion.p>
 
-      <div className="relative flex justify-center items-center mb-[160px] max-[550px]:mb-[100px] max-[1275px]:px-[20px]">
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0, transition: { delay: 0.5 } }}
+        viewport={{ once: true, margin: '-100px' }}
+        className="relative flex justify-center items-center mb-[160px] max-[550px]:mb-[100px] max-[1275px]:px-[20px]">
         {/* Video */}
         <div className="relative w-full max-w-[1230px]">
           <video
@@ -69,17 +82,33 @@ function ValuesBlock({}: Props) {
             </svg>
           </button>
         )}
-      </div>
+      </motion.div>
 
-      <h1 className="font-[700] text-[48px] mb-[24px] max-[1000px]:text-[32px]">Our core values</h1>
-      <p className="text-[18px] font-[400] text-[#787A80] mb-[60px]  max-[1000px]:text-[14px] noBold">
+      <motion.h1
+        initial={{ opacity: 0, x: 100 }}
+        whileInView={{ opacity: 1, x: 0, transition: { delay: 0.4 } }}
+        viewport={{ once: true, margin: '-100px' }}
+        className="font-[700] text-[48px] mb-[24px] max-[1000px]:text-[32px]">
+        Our core values
+      </motion.h1>
+
+      <motion.p
+        initial={{ opacity: 0, x: 100 }}
+        whileInView={{ opacity: 1, x: 0, transition: { delay: 0.5 } }}
+        viewport={{ once: true, margin: '-100px' }}
+        className="text-[18px] font-[400] text-[#787A80] mb-[60px] max-[1000px]:text-[14px] noBold">
         Our mission is to set the highest standards for construction sphere.
-      </p>
+      </motion.p>
 
       {/* Values */}
       {/* <div className="flex gap-[188px] text-center justify-center mb-[100px] max-[1350px]:mb-[25px] relative max-[1350px]:flex-col max-[1350px]:items-center max-[1350px]:gap-[40px]"> */}
       <div className="flex gap-[188px] text-center justify-center mb-[100px] max-[1350px]:mb-[25px] relative max-[1350px]:items-center max-[1350px]:grid max-[1350px]:grid-cols-2 max-[1350px]:place-items-center max-[1350px]:gap-[100px] max-[630px]:flex max-[630px]:flex-col">
-        <article className="flex flex-col  max-w-[285px] items-center justify-center relative">
+        <motion.article
+          initial={{ opacity: 0, y: -100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="flex flex-col  max-w-[285px] items-center justify-center relative">
           <img width={50} className="mb-[24px]" src="/ic-like.svg" alt="" />
           <h2 className="font-[700] text-[20px] mb-[8px]">Quality</h2>
           <p className="text-[#787A80] font-[400] text-[16px] noBold">
@@ -93,9 +122,14 @@ function ValuesBlock({}: Props) {
               backgroundImage: "url('https://live.verstaem.online/createx/img/divider.svg')",
               backgroundSize: 'contain',
             }}></div>
-        </article>
+        </motion.article>
 
-        <article className="flex flex-col max-w-[285px] items-center justify-center relative">
+        <motion.article
+          initial={{ opacity: 0, y: -100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.9 }}
+          className="flex flex-col max-w-[285px] items-center justify-center relative">
           <img width={50} className="mb-[24px]" src="/ic-hand.svg" alt="" />
           <h2 className="font-[700] text-[20px] mb-[8px]">Safety</h2>
           <p className="text-[#787A80] font-[400] text-[16px] noBold">
@@ -109,19 +143,30 @@ function ValuesBlock({}: Props) {
               backgroundImage: "url('https://live.verstaem.online/createx/img/divider.svg')",
               backgroundSize: 'contain',
             }}></div>
-        </article>
+        </motion.article>
 
-        <article className="flex flex-col  max-w-[285px] items-center justify-center">
+        <motion.article
+          initial={{ opacity: 0, y: -100 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2 }}
+          className="flex flex-col  max-w-[285px] items-center justify-center">
           <img width={50} className="mb-[24px]" src="/ic-slippers.svg" alt="" />
           <h2 className="font-[700] text-[20px] mb-[8px]">Comfort</h2>
           <p className="text-[#787A80] font-[400] text-[16px] noBold">
             Sit veniam aute dolore adipisicing nulla sit culpa. Minim mollit voluptate ullamco
             proident ea ad.
           </p>
-        </article>
+        </motion.article>
       </div>
 
-      <FormSection />
+      <motion.div
+        initial={{ opacity: 0, rotateY: 0 }}
+        whileInView={{ opacity: 1, rotateY: 360 }}
+        transition={{ duration: 1, ease: 'easeInOut' }}
+        viewport={{ once: true }}>
+        <FormSection />
+      </motion.div>
     </Container>
   );
 }

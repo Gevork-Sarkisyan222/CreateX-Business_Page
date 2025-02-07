@@ -1,5 +1,6 @@
 import React from 'react';
 import Container from './container';
+import * as motion from 'motion/react-client';
 
 type Props = {};
 
@@ -7,7 +8,11 @@ function Footer({}: Props) {
   return (
     <div className="bg-[#1E212C] max-[1295px]:px-[20px]">
       <Container className="py-[80px]">
-        <div className="flex items-center gap-[242px] max-[920px]:flex-col max-[920px]:gap-[40px] max-[920px]:items-start">
+        <motion.div
+          initial={{ opacity: 0, x: -300 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="flex items-center gap-[242px] max-[920px]:flex-col max-[920px]:gap-[40px] max-[920px]:items-start">
           <div className="flex flex-col max-w-[493px]">
             <div className="flex gap-[60px] max-[440px]:flex-col max-[440px]:gap-[20px]">
               <img width={142} src="/white-logo.svg" alt="" />
@@ -46,9 +51,13 @@ function Footer({}: Props) {
               Construction Bureau.
             </p>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="flex gap-[125px] items-center mt-[73px] max-[655px]:flex-col max-[655px]:gap-[40px] max-[655px]:items-start">
+        <motion.div
+          initial={{ opacity: 0, x: 300 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="flex gap-[125px] items-center mt-[73px] max-[655px]:flex-col max-[655px]:gap-[40px] max-[655px]:items-start">
           <ul className="flex flex-col gap-[8px]">
             <h2 className="font-[700] text-white text-[15px]">HEAD OFFICE</h2>
             <li className="text-[#787A80] font-[400]">
@@ -76,11 +85,15 @@ function Footer({}: Props) {
             <li className="text-[#787A80] font-[400]">Work</li>
             <li className="text-[#787A80] font-[400]">News</li>
           </ul>
-        </div>
+        </motion.div>
 
-        <div className="flex text-white font-[400] text-[12px] mt-[60px] gap-[5px] noBold">
+        <motion.div
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          className="flex text-white font-[400] text-[12px] mt-[60px] gap-[5px] noBold">
           © All rights reserved. Made with <img src="/heart (2).svg" alt="" /> by Createx Studio
-        </div>
+        </motion.div>
       </Container>
     </div>
   );

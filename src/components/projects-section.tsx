@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
 
 type Props = {};
 
@@ -95,7 +96,11 @@ function ProjectSection({}: Props) {
 
   return (
     <div className="pt-[120px] max-w-[1230px] mx-auto max-[1360px]:px-[20px]">
-      <div className="flex justify-between max-[640px]:flex-col">
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="flex justify-between max-[640px]:flex-col">
         <h1 className="font-[700] text-[48px] mb-[60px] max-[1360px]:text-[32px] max-[640px]:mb-[24px] max-[570px]:text-[28px] max-[470px]:text-[24px]">
           Browse our selected projects <br /> and learn more about our work
         </h1>
@@ -139,7 +144,7 @@ function ProjectSection({}: Props) {
             </svg>
           </button>
         </div>
-      </div>
+      </motion.div>
 
       {/* project cards */}
       <div className="overflow-hidden relative">
@@ -149,7 +154,14 @@ function ProjectSection({}: Props) {
           }}
           className={`flex gap-[30px] items-center max-[800px]:grid-cols-2 max-[580px]:grid-cols-1 transition-transform duration-500 max-[1105px]:hidden`}>
           {projects.map((project, index) => (
-            <div
+            <motion.div
+              initial={{ opacity: 0, y: -100 }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+                transition: { delay: index < 3 ? index * 0.3 : 0.3 },
+              }}
+              viewport={{ once: true }}
               key={index}
               className="flex-shrink-0 w-1/3 max-w-[390px] max-[580px]:max-w-full pb-[24px] group">
               <img className="w-full" src={project.image} alt={project.title} />
@@ -160,14 +172,19 @@ function ProjectSection({}: Props) {
                   View project
                 </button>
               </div>
-            </div>
+            </motion.div>
           ))}
         </section>
 
         <section
           className={`gap-[30px] items-center max-[1105px]:grid max-[1105px]:grid-cols-2 max-[580px]:grid-cols-1 hidden`}>
           {projects.map((project, index) => (
-            <div key={index} className="max-w-[390px] max-[1105px]:max-w-full pb-[24px] group">
+            <motion.div
+              initial={{ opacity: 0, x: index % 2 === 0 ? 100 : -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              key={index}
+              className="max-w-[390px] max-[1105px]:max-w-full pb-[24px] group">
               <img className="w-full" src={project.image} alt={project.title} />
               <div className="text-center m-auto mt-[16px] bg-[#FFFFFF] max-h-[51px] group-hover:max-h-[120px] overflow-hidden duration-300 transition-all">
                 <h2 className="font-[700] text-[20px]">{project.title}</h2>
@@ -176,17 +193,21 @@ function ProjectSection({}: Props) {
                   View project
                 </button>
               </div>
-            </div>
+            </motion.div>
           ))}
         </section>
       </div>
 
-      <div className="flex justify-center gap-[40px] max-[585px]:gap-[10px] items-center mb-[60px] mt-[85px] max-[585px]:flex-col">
+      <motion.div
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{ opacity: 1, x: 0, transition: { delay: 0.4 } }}
+        viewport={{ once: true }}
+        className="flex justify-center gap-[40px] max-[585px]:gap-[10px] items-center mb-[60px] mt-[85px] max-[585px]:flex-col">
         <h1 className="font-[700] text-[28px]">Explore all our works</h1>
         <button className="bg-[#FF5A30] rounded-[4px] w-[207px] h-[44px] text-white font-[700] text-[16px] hover:bg-[#fc3300] duratuion-300 transition-all uppercase">
           View portfolio
         </button>
-      </div>
+      </motion.div>
     </div>
   );
 }

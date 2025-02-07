@@ -17,12 +17,14 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  overflow-x: hidden;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: 'Ubuntu', sans-serif;
+  overflow-x: hidden;
 }
 
 .noBold {
